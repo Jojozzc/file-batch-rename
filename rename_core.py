@@ -2,7 +2,7 @@
 
 import os
 
-def rename_batch(root_path:str, preffix:str, small_file_preffix:str, file_size_threshold_in_bytes:float, file_suffix_set:set, ignore_case:bool):
+def rename_batch(root_path:str, preffix:str, small_file_preffix:str, file_size_threshold_in_bytes:float, file_suffix_set:set, ignore_case:bool, start_index:int):
     files = os.listdir(root_path)
 
     lower_set = set()
@@ -10,7 +10,7 @@ def rename_batch(root_path:str, preffix:str, small_file_preffix:str, file_size_t
         for s in file_suffix_set:
             lower_set.add(s.lower())
 
-    i = 1
+    i = start_index
 
     for old_file_name in files:
         old_full_path = os.path.join(root_path, old_file_name)
