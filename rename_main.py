@@ -31,10 +31,10 @@ if __name__ == "__main__":
 
     preffix = config_parser.get('CONFIG', 'preffix.standard')
     small_file_preffix = config_parser.get('CONFIG', 'preffix.small')
-    ignore_case = config_parser.getboolean('CONFIG', 'case.ignore')
+    ignore_case = config_parser.getboolean('CONFIG', 'case.ignore', fallback=True)
     file_suffix_set = set(parse_list(config_parser.get('CONFIG', 'file.suffix.set')))
     file_size_threshold_in_bytes = config_parser.getfloat('CONFIG', 'file.threshold.bytes')
-    start_index = config_parser.getint('CONFIG', 'index.start')
+    start_index = config_parser.getint('CONFIG', 'index.start', fallback=1)
     print("root path:{}".format(root_path))
     rename_core.rename_batch(root_path=root_path,
                              preffix=preffix,
